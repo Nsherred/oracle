@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 2.0rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+h5 {
+  font-size: 1.4rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+html {
+  height: 100%;
+  font-size: calc(10px + 1vw);
+}
+
+//fix font size for large screens. Calculate this point
+@media (min-width: 1750px) {
+  html {
+    font-size: max(1vw, 10px);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  height: 100%;
+  font-family: Helvetica Neue, Inter, BlinkMacSystemFont, sans-serif;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.story-generator {
+  display: grid;
+  grid-template-rows: 5rem 5rem 5rem 1rem;
+  grid-template-columns: 20rem;
+  padding-left: 2rem;
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+}
+
+.loading {
+  margin: auto;
+  background: none;
+  display: block;
+  shape-rendering: auto;
+  width: 200px;
+  height: 200px;
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

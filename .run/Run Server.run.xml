@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run Server" type="JetRunConfigurationType">
+    <option name="MAIN_CLASS_NAME" value="io.nicronomicon.oracle.ApplicationKt" />
+    <module name="oracle.server.main" />
+    <option name="PROGRAM_PARAMETERS" value="-config=./application.yaml" />
+    <shortenClasspath name="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
