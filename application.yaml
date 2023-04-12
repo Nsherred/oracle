@@ -4,6 +4,8 @@ ktor:
   application:
     modules:
       - io.nicronomicon.oracle.ApplicationKt.module
-
+  filesystem:
+    messages: "./storage/messages"
+    prompts: "./storage/prompts"
   security:
     openAI: "$OPENAI_API_KEY"

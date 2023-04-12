@@ -20,10 +20,14 @@ fun Application.module() {
     val openAIKey = environment.config.propertyOrNull("ktor.security.openAI")?.getString()
         ?: throw IllegalStateException("OpenAI key not found")
 
+    val messageRawPath = environment.config.propertyOrNull("ktor.filesystem.messages")?.getString()
+        ?: throw IllegalStateException("Message storage path not found")
+    val promptRawPath = environment.config.propertyOrNull("ktor.filesystem.prompts")?.getString()
+        ?: throw IllegalStateException("Prompt storage path not found")
     val openAI = OpenAI(openAIKey)
 
-    val messagePath = Path.of("/Users/nsherred/projects/raven/storage")
-    val promptPath = Path.of("/Users/nsherred/projects/raven/prompt")
+    val messagePath = Path.of(messageRawPath)
+    val promptPath = Path.of(promptRawPath)
     val messageStorage = Message::class.fileSystemStorage(messagePath)
     val promptStorage = GptPrompt::class.fileSystemStorage(promptPath)
     val oracleAI = OracleAI(openAI, messageStorage, promptStorage)
