@@ -36,6 +36,5 @@ out/
 .vscode/
 
 
-/prompt/
-/storage/
+/storage/**/*.json
 /client/node_modules/
