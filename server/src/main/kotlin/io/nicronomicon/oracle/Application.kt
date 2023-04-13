@@ -28,8 +28,8 @@ fun Application.module() {
 
     val messagePath = Path.of(messageRawPath)
     val promptPath = Path.of(promptRawPath)
-    val messageStorage = Message::class.fileSystemStorage(messagePath)
-    val promptStorage = GptPrompt::class.fileSystemStorage(promptPath)
+    val messageStorage = fileSystemStorage<Message>(messagePath)
+    val promptStorage = fileSystemStorage<GptPrompt>(promptPath)
     val oracleAI = OracleAI(openAI, messageStorage, promptStorage)
     val storyAI = StoryAI(openAI)
 

@@ -15,9 +15,8 @@ import java.nio.file.Path
 import kotlin.reflect.KClass
 
 
-fun <T : Entity> KClass<T>.fileSystemStorage(path: Path): FileSystemStorage<T> {
-    return FileSystemStorage(defaultJson, path, this)
-}
+inline fun <reified T : Entity> fileSystemStorage(path: Path): FileSystemStorage<T> =
+    FileSystemStorage(defaultJson, path, T::class)
 
 @OptIn(InternalSerializationApi::class)
 class FileSystemStorage<T : Entity>(
@@ -67,9 +66,5 @@ class FileSystemStorage<T : Entity>(
 
     override suspend fun getAll(): Sequence<T> {
         return storage.getAll()
-    }
-
-    companion object {
-
     }
 }
